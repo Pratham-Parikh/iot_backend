@@ -4,7 +4,13 @@ const cors = require("cors");
 
 const bcrypt = require("bcrypt");
 
-const MONGO_URI = process.env.MONGO_URI;
+const username = encodeURIComponent(process.env.MONGO_USERNAME);
+const password = encodeURIComponent(process.env.MONGO_PASSWORD);
+const cluster = process.env.MONGO_CLUSTER;
+const dbName = process.env.MONGO_DB || "defaultDB"; 
+
+const MONGO_URI = `mongodb+srv://${username}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority`;
+
 
 
 // Initialize Express App
