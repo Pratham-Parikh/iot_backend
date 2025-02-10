@@ -9,7 +9,8 @@ const password = encodeURIComponent(process.env.MONGO_PASSWORD);
 const cluster = process.env.MONGO_CLUSTER;
 const dbName = process.env.MONGO_DB || "defaultDB"; 
 
-const MONGO_URI = `mongodb+srv://${username}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority`;
+const MONGO_URI = `mongodb+srv://${username}:${password}@${cluster}/${dbName}?retryWrites=true&w=majority&tls=true&ssl=true&authSource=admin`;
+
 
 
 
@@ -23,7 +24,6 @@ app.use(express.json());
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  tls:true,
 });
 
 const db = mongoose.connection;
