@@ -23,6 +23,7 @@ app.use(express.json());
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  tls:true,
 });
 
 const db = mongoose.connection;
