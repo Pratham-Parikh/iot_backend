@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const bcrypt = require("bcrypt");
-require("dotenv").config();
+
 const MONGO_URI = process.env.MONGO_URI;
 
 
